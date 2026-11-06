@@ -1,0 +1,23 @@
+# Build .NET
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.log
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.rsuser
+
+# Base SQLite locale (recreee par les migrations)
+*.db
+*.db-shm
+*.db-wal
+
+# Secrets locaux
+appsettings.*.local.json
+.env

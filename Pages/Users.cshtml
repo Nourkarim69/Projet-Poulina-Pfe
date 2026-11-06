@@ -1,0 +1,52 @@
+@page "/users"
+@model UsersModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="container mt-4">
+    <h1>Users Management</h1>
+
+    <form method="post" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" asp-for="NewUser.Name" placeholder="Name" class="form-control" required />
+            </div>
+            <div class="col-md-4">
+                <input type="email" asp-for="NewUser.Email" placeholder="Email" class="form-control" required />
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Add User</button>
+            </div>
+        </div>
+    </form>
+
+    @if (Model?.Users?.Any() == true)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.CreatedAt.ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No users found.</p>
+    }
+</div>
